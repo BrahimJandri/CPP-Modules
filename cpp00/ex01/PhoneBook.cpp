@@ -2,28 +2,50 @@
 
 PhoneBook::PhoneBook() : contactCount(0) {};
 
+bool PhoneBook::isInputValid(const std::string &str) const
+{
+    for (size_t i = 0; i < str.length(); ++i)
+    {
+        if (!isprint(str[i]))
+        {
+            return false;
+        }
+    }
+    return true;
+}
 void PhoneBook::addContact()
 {
     Contact newContact;
     std::string input;
-
     std::cout << "Enter First Name: ";
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    {
+        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
+        return;
+    }
     newContact.setFirstName(input);
-
     std::cout << "Enter Last Name: ";
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    {
+        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
+        return;
+    }
     newContact.setLastName(input);
-
     std::cout << "Enter Nickname: ";
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    {
+        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
+        return;
+    }
     newContact.setNickName(input);
-
     while (true)
     {
         std::cout << "Enter Phone Number: ";
-        std::getline(std::cin, input);
-
+        if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+        {
+            std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
+            return;
+        }
         bool isValid = true;
         for (size_t i = 0; i < input.length(); ++i)
         {
@@ -33,7 +55,6 @@ void PhoneBook::addContact()
                 break;
             }
         }
-
         if (isValid)
         {
             newContact.setPhoneNumber(input);
@@ -44,11 +65,13 @@ void PhoneBook::addContact()
             std::cout << "Invalid phone number. Please enter digits only." << std::endl;
         }
     }
-
     std::cout << "Enter Darkest Secret: ";
-    std::getline(std::cin, input);
+    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    {
+        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
+        return;
+    }
     newContact.setDarkestSecret(input);
-
     contacts[contactCount % 8] = newContact;
     contactCount++;
 }
@@ -60,6 +83,7 @@ void PhoneBook::searchContacts() const
         std::cout << "No contacts available to display." << std::endl;
         return;
     }
+
     std::cout << std::setw(10) << "Index" << "|"
               << std::setw(10) << "First Name" << "|"
               << std::setw(10) << "Last Name" << "|"
@@ -75,17 +99,25 @@ void PhoneBook::searchContacts() const
     }
 
     int index;
+    std::string input;
     std::cout << "Enter the index of the contact to display: ";
-    std::cin >> index;
-    std::cin.ignore();
-    if (index >= 0 && index < (contactCount < 8 ? contactCount : 8))
+
+    while (true)
     {
-        displayContact(index);
+        std::getline(std::cin, input);
+
+        std::stringstream ss(input);
+        if (ss >> index && !(ss >> input) && index >= 0 && index < (contactCount < 8 ? contactCount : 8))
+        {
+            break;
+        }
+        else
+        {
+            std::cout << "Invalid index! Please enter a valid index: ";
+        }
     }
-    else
-    {
-        std::cout << "Invalid index!" << std::endl;
-    }
+
+    displayContact(index);
 }
 
 void PhoneBook::displayContact(int index) const
