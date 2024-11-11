@@ -18,21 +18,21 @@ void PhoneBook::addContact()
     Contact newContact;
     std::string input;
     std::cout << "Enter First Name: ";
-    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
     {
         std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
         return;
     }
     newContact.setFirstName(input);
     std::cout << "Enter Last Name: ";
-    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
     {
         std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
         return;
     }
     newContact.setLastName(input);
     std::cout << "Enter Nickname: ";
-    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
     {
         std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
         return;
@@ -41,7 +41,7 @@ void PhoneBook::addContact()
     while (true)
     {
         std::cout << "Enter Phone Number: ";
-        if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+        if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
         {
             std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
             return;
