@@ -12,7 +12,7 @@ class PhoneBook {
 private:
     Contact contacts[8];
     int contactCount;
-    bool isInputValid(const std::string& str) const ;
+    bool isInputValid(const std::string &str) const ;
 public:
     PhoneBook();
     void    addContact();
