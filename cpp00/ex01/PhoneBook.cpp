@@ -18,27 +18,75 @@ void PhoneBook::addContact()
 {
     Contact newContact;
     std::string input;
-    std::cout << "Enter First Name: ";
-    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
+    while (true)
     {
-        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
-        return;
+        std::cout << "Enter First Name: ";
+        if (!std::getline(std::cin, input))
+        {
+            if (std::cin.eof())
+            {
+                std::cout << std::endl
+                          << "Exiting Program" << std::endl;
+                exit(1);
+            }
+            std::cout << "Invalid input" << std::endl;
+        }
+        else if (input.empty() || !isInputValid(input))
+        {
+            std::cout << "Invalid input" << std::endl;
+        }
+        else
+        {
+            newContact.setFirstName(input);
+            break;
+        }
     }
-    newContact.setFirstName(input);
-    std::cout << "Enter Last Name: ";
-    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
+    while (true)
     {
-        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
-        return;
+        std::cout << "Enter Last Name: ";
+        if (!std::getline(std::cin, input))
+        {
+            if (std::cin.eof())
+            {
+                std::cout << std::endl
+                          << "Exiting Program" << std::endl;
+                exit(1);
+            }
+            std::cout << "Invalid input" << std::endl;
+        }
+        else if (input.empty() || !isInputValid(input))
+        {
+            std::cout << "Invalid input" << std::endl;
+        }
+        else
+        {
+            newContact.setLastName(input);
+            break;
+        }
     }
-    newContact.setLastName(input);
-    std::cout << "Enter Nickname: ";
-    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
+    while (true)
     {
-        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
-        return;
+        std::cout << "Enter Nick Name: ";
+        if (!std::getline(std::cin, input))
+        {
+            if (std::cin.eof())
+            {
+                std::cout << std::endl
+                          << "Exiting Program" << std::endl;
+                exit(1);
+            }
+            std::cout << "Invalid input" << std::endl;
+        }
+        else if (input.empty() || !isInputValid(input))
+        {
+            std::cout << "Invalid input" << std::endl;
+        }
+        else
+        {
+            newContact.setNickName(input);
+            break;
+        }
     }
-    newContact.setNickName(input);
     while (true)
     {
         std::cout << "Enter Phone Number: ";
@@ -66,13 +114,29 @@ void PhoneBook::addContact()
             std::cout << "Invalid phone number. Please enter digits only." << std::endl;
         }
     }
-    std::cout << "Enter Darkest Secret: ";
-    if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input))
+    while (true)
     {
-        std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
-        return;
+        std::cout << "Enter Darkest Secret Name: ";
+        if (!std::getline(std::cin, input))
+        {
+            if (std::cin.eof())
+            {
+                std::cout << std::endl
+                          << "Exiting Program" << std::endl;
+                exit(1);
+            }
+            std::cout << "Invalid input" << std::endl;
+        }
+        else if (input.empty() || !isInputValid(input))
+        {
+            std::cout << "Invalid input" << std::endl;
+        }
+        else
+        {
+            newContact.setDarkestSecret(input);
+            break;
+        }
     }
-    newContact.setDarkestSecret(input);
     contacts[contactCount % 8] = newContact;
     contactCount++;
     std::cout << "Contact added Successfully ✅." << std::endl;
@@ -106,10 +170,15 @@ void PhoneBook::searchContacts() const
 
     while (true)
     {
-        if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
+        if (!std::getline(std::cin, input) || !isInputValid(input) || input.empty())
         {
-            std::cout << "Invalid input or input terminated. Exiting Searching." << std::endl;
-            return;
+            if (std::cin.eof())
+            {
+                std::cout << std::endl
+                          << "Exiting Program" << std::endl;
+                exit(1);
+            }
+            // std::cout << "Invalid input" << std::endl;
         }
         std::stringstream ss(input);
         if (ss >> index && !(ss >> input) && index >= 0 && index < (contactCount < 8 ? contactCount : 8))

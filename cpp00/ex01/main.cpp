@@ -10,10 +10,10 @@ int main()
         std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
         if (!std::getline(std::cin, command) || std::cin.eof())
         {
-            std::cout << "Input terminated. Exiting program." << std::endl;
+            std::cout << std::endl << "Exiting program." << std::endl;
             break;
         }
-        if (command == "ADD")
+        else if (command == "ADD")
         {
             phoneBook.addContact();
         }
@@ -30,6 +30,5 @@ int main()
             std::cout << "Unknown command!" << std::endl;
         }
     }
-
     return 0;
 }

@@ -5,6 +5,8 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <cstdlib>
+
 
 class Contact {
 private:
