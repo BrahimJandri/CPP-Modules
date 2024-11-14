@@ -149,7 +149,6 @@ void PhoneBook::searchContacts() const
         std::cout << "No contacts available to display." << std::endl;
         return;
     }
-
     std::cout << std::setw(10) << "Index" << "|"
               << std::setw(10) << "First Name" << "|"
               << std::setw(10) << "Last Name" << "|"
@@ -178,7 +177,6 @@ void PhoneBook::searchContacts() const
                           << "Exiting Program" << std::endl;
                 exit(1);
             }
-            // std::cout << "Invalid input" << std::endl;
         }
         std::stringstream ss(input);
         if (ss >> index && !(ss >> input) && index >= 0 && index < (contactCount < 8 ? contactCount : 8))
