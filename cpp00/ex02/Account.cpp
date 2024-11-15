@@ -41,7 +41,6 @@ void Account::displayStatus(void) const
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-// Make a deposit
 void Account::makeDeposit(int deposit)
 {
     _totalNbDeposits++;
