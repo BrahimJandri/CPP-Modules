@@ -15,15 +15,14 @@ Account::Account(int initial_deposit) : _accountIndex(_nbAccounts), _amount(init
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
-// Destructor
 Account::~Account(void)
 {
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
     _nbAccounts--;
     _totalAmount -= _amount;
-}
 
+}
 // Getters
 int Account::getNbAccounts(void) { return _nbAccounts; }
 int Account::getTotalAmount(void) { return _totalAmount; }
