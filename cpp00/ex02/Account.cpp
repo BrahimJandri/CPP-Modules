@@ -72,7 +72,6 @@ bool Account::makeWithdrawal(int withdrawal)
     return true;
 }
 
-// Check amount
 int Account::checkAmount(void) const
 {
     return _amount;
