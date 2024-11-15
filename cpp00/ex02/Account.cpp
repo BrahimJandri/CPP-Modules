@@ -77,7 +77,6 @@ int Account::checkAmount(void) const
     return _amount;
 }
 
-// Display timestamp
 void Account::_displayTimestamp(void)
 {
     std::time_t t = std::time(nullptr);
