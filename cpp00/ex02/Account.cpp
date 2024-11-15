@@ -35,7 +35,6 @@ void Account::displayAccountsInfos(void)
     std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount() << ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
-// Display status
 void Account::displayStatus(void) const
 {
     _displayTimestamp();
