@@ -21,7 +21,6 @@ Account::~Account(void)
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
     _nbAccounts--;
     _totalAmount -= _amount;
-
 }
 
 int Account::getNbAccounts(void) { return _nbAccounts; }
