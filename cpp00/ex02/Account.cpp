@@ -29,7 +29,6 @@ int Account::getTotalAmount(void) { return _totalAmount; }
 int Account::getNbDeposits(void) { return _totalNbDeposits; }
 int Account::getNbWithdrawals(void) { return _totalNbWithdrawals; }
 
-// Display account info
 void Account::displayAccountsInfos(void)
 {
     _displayTimestamp();
