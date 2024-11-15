@@ -52,7 +52,6 @@ void Account::makeDeposit(int deposit)
     std::cout << "index:" << _accountIndex << ";p_amount:" << (_amount - deposit) << ";deposit:" << deposit << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits << std::endl;
 }
 
-// Make a withdrawal
 bool Account::makeWithdrawal(int withdrawal)
 {
     if (_amount < withdrawal)
