@@ -7,8 +7,8 @@
 #include <sstream>
 #include <cstdlib>
 
-
-class Contact {
+class Contact
+{
 private:
     std::string firstName;
     std::string lastName;
