@@ -90,10 +90,20 @@ void PhoneBook::addContact()
     while (true)
     {
         std::cout << "Enter Phone Number: ";
-        if (!std::getline(std::cin, input) || std::cin.eof() || !isInputValid(input) || input.empty())
+        if (!std::getline(std::cin, input))
         {
-            std::cout << "Invalid input or input terminated. Exiting addContact." << std::endl;
-            return;
+            if (std::cin.eof())
+            {
+                std::cout << std::endl
+                          << "Exiting Program" << std::endl;
+                exit(1);
+            }
+            std::cout << "Invalid input" << std::endl;
+        }
+        else if (input.empty() || !isInputValid(input))
+        {
+            std::cout << "Invalid input" << std::endl;
+            continue;
         }
         bool isValid = true;
         for (size_t i = 0; i < input.length(); ++i)
@@ -111,7 +121,7 @@ void PhoneBook::addContact()
         }
         else
         {
-            std::cout << "Invalid phone number. Please enter digits only." << std::endl;
+            std::cout << "Invalid input" << std::endl;
         }
     }
     while (true)
