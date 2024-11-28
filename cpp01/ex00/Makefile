@@ -1,5 +1,5 @@
 CXX = c++
-CXXFLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = newZombie.cpp randomChump.cpp Zombie.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
@@ -14,6 +14,6 @@ clean :
 fclean: clean
 	rm -f Zombie
 
-re: all fclean
+re: clean all
 
 .PHONY: all clean fclean re
