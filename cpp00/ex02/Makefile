@@ -14,6 +14,6 @@ clean :
 fclean : clean
 	rm -f Account
 
-re : all fclean
+re : clean all
 
-.PHONY : all fclean clean re
+.PHONY : all clean fclean re
