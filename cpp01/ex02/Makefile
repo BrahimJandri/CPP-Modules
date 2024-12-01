@@ -1,19 +1,19 @@
 CXX= c++
 CXXFLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-SRC= main.cpp Zombie.cpp zombieHorde.cpp
+SRC= main.cpp
 OBJ=$(SRC:.cpp=.o)
 
-all: Zombie
+all: a.out
 
-Zombie : $(OBJ)
-	$(CXX) $(CXXFLAGS) -o Zombie $(OBJ)
+a.out : $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ)
 
 clean :
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f Zombie
+	rm -f a.out
 
 re: clean all
 
