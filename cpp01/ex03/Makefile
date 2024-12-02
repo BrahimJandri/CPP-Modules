@@ -1,19 +1,20 @@
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-SRC = newZombie.cpp randomChump.cpp Zombie.cpp main.cpp
-OBJ = $(SRC:.cpp=.o)
+CXX= c++
+CXXFLAGS= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-all: Zombie
+SRC= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp 
+OBJ=$(SRC:.cpp=.o)
 
-Zombie : $(OBJ)
-	$(CXX) $(CXXFLAGS) -o Zombie $(OBJ)
+all: voilence
+
+voilence : $(OBJ)
+	$(CXX) $(CXXFLAGS) -o voilence $(OBJ)
 
 clean :
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f Zombie
+	rm -f voilence
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re

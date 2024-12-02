@@ -15,6 +15,6 @@ clean :
 fclean: clean
 	rm -f a.out
 
-re: clean all
+re: fclean all
 
 .PHONY: all clean fclean re
