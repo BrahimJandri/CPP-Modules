@@ -11,7 +11,7 @@ class file
     std::string s2;
 
 public:
-    void setStrings(const std::string &fileName, const std::string &s1, const std::string &s2);
+    int setStrings(const std::string &fileName, const std::string &s1, const std::string &s2);
     void replaceStringInFile(void);
 };
 

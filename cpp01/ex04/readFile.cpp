@@ -1,10 +1,16 @@
 #include "readFile.hpp"
 
-void file::setStrings(const std::string &fileName, const std::string &s1, const std::string &s2)
+int file::setStrings(const std::string &fileName, const std::string &s1, const std::string &s2)
 {
+    if(s1.empty() || s2.empty())
+    {
+        std::cerr << "String cannot be empty" << std::endl;
+        return 1;
+    }
     this->fileName = fileName;
     this->s1 = s1;
     this->s2 = s2;
+    return 0;
 }
 
 void file::replaceStringInFile()
@@ -12,7 +18,7 @@ void file::replaceStringInFile()
     std::ifstream inputFile(this->fileName.c_str());
     if (!inputFile.is_open())
     {
-        std::cerr << "Error Opening the file" << std::endl;
+        std::cerr << "Error opening the file: " << this->fileName << std::endl;
         return;
     }
 
@@ -20,11 +26,11 @@ void file::replaceStringInFile()
     std::string line;
     while (std::getline(inputFile, line))
     {
-        content += line + "\n"; // Read the entire file into content
+        content += line + "\n";
     }
     inputFile.close();
 
-    std::string newFilename = this->fileName + ".replace"; // Use this->fileName
+    std::string newFilename = this->fileName + ".replace";
     std::ofstream outputFile(newFilename.c_str());
     if (!outputFile.is_open())
     {
@@ -34,14 +40,14 @@ void file::replaceStringInFile()
 
     size_t pos = 0;
     while ((pos = content.find(this->s1, pos)) != std::string::npos)
-    {                                         // Use this->s1
-        outputFile << content.substr(0, pos); // Write content before s1
-        outputFile << this->s2;               // Write s2
-        pos += this->s1.length();             // Move past the found s1
-        content = content.substr(pos);        // Update content to remove processed part
-        pos = 0;                              // Reset pos to search in the updated content
+    {
+        outputFile << content.substr(0, pos);
+        outputFile << this->s2;
+        pos += this->s1.length();
+        content = content.substr(pos);
+        pos = 0;
     }
-    outputFile << content; // Write any remaining content
+    outputFile << content;
     outputFile.close();
     std::cout << "Replacement completed: " << newFilename << " created." << std::endl;
 }
