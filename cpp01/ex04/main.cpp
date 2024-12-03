@@ -8,22 +8,8 @@ int main(int argc, char *argv[])
         std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
         return 1;
     }
-
-    f.fileName = argv[1];
-    f.s1 = argv[2];
-    f.s2 = argv[3];
-
-    try
-    {
-        std::string content = readFile(filename);
-        std::string modifiedContent = replaceString(content, s1, s2);
-        writeFile(filename, modifiedContent);
-    }
-    catch (const std::exception &e)
-    {
-        std::cerr << e.what() << std::endl;
-        return 1;
-    }
+    f.setStrings(argv[1], argv[2], argv[3]);
+    f.replaceStringInFile();
 
     return 0;
 }
