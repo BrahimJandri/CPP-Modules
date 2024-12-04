@@ -1,6 +1,7 @@
 #include "Harl.hpp"
 
-int main() {
+int main()
+{
     Harl harl;
 
     std::cout << "Testing DEBUG level:" << std::endl;
