@@ -1,4 +1,3 @@
-// HumanB.hpp
 #ifndef HUMANB_HPP
 #define HUMANB_HPP
 
@@ -18,4 +17,4 @@ public:
     void attack() const;
 };
 
-#endif // HUMANB_HPP
+#endif
