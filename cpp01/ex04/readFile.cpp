@@ -2,7 +2,7 @@
 
 int file::setStrings(const std::string &fileName, const std::string &s1, const std::string &s2)
 {
-    if(s1.empty() || s2.empty())
+    if (s1.empty() || s2.empty())
     {
         std::cerr << "String cannot be empty" << std::endl;
         return 1;
@@ -22,14 +22,6 @@ void file::replaceStringInFile()
         return;
     }
 
-    std::string content;
-    std::string line;
-    while (std::getline(inputFile, line))
-    {
-        content += line + "\n";
-    }
-    inputFile.close();
-
     std::string newFilename = this->fileName + ".replace";
     std::ofstream outputFile(newFilename.c_str());
     if (!outputFile.is_open())
@@ -38,16 +30,29 @@ void file::replaceStringInFile()
         return;
     }
 
-    size_t pos = 0;
-    while ((pos = content.find(this->s1, pos)) != std::string::npos)
+    std::string line;
+    while (std::getline(inputFile, line))
     {
-        outputFile << content.substr(0, pos);
-        outputFile << this->s2;
-        pos += this->s1.length();
-        content = content.substr(pos);
-        pos = 0;
+        std::string result;
+        size_t pos = 0;
+        while (pos < line.size())
+        {
+            size_t found = line.find(s1, pos);
+            if (found != std::string::npos)
+            {
+                result += line.substr(pos, found - pos);
+                result += s2;
+                pos = found + s1.length();
+            }
+            else
+            {
+                result += line.substr(pos);
+                break;
+            }
+        }
+        outputFile << result << '\n';
     }
-    outputFile << content;
+    inputFile.close();
     outputFile.close();
     std::cout << "Replacement completed: " << newFilename << " created." << std::endl;
 }
