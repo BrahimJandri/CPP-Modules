@@ -60,6 +60,7 @@
     "*.dart": "bat",
     "iosfwd": "cpp",
     "fstream": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "ostream": "cpp"
   }
 }
