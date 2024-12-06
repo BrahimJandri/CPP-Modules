@@ -3,18 +3,17 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
-TARGET = harl
 
-all: $(TARGET)
+all: harl
 
-$(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+harl: $(OBJS)
+	$(CXX) $(CXXFLAGS) -o harl $(OBJS)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(TARGET)
+	rm -f harl
 
 re: fclean all
 
