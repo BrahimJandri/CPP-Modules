@@ -1,19 +1,19 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = fixed_point
+SRCS = main.cpp Fixed.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-SRC = main.cpp Fixed.cpp
-OBJ = $(SRC:.cpp=.o)
+all: fixed_point
 
-all: $(NAME)
-
-$(NAME): $(OBJ)
-    $(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+fixed_point: $(OBJS)
+	$(CXX) $(CXXFLAGS) -o fixed_point $(OBJS)
 
 clean:
-    rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
-    rm -f $(NAME)
+	rm -f fixed_point
 
 re: fclean all
+
+.PHONY: all clean fclean re
