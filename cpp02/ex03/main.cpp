@@ -11,8 +11,8 @@ int main()
     Point inside(1, 1);
     Point outside(11, 11);
 
-    std::cout << "Point inside: " << bsp(a, b, c, inside) << std::endl;   // Should output 1 (true)
-    std::cout << "Point outside: " << bsp(a, b, c, outside) << std::endl; // Should output 0 (false)
+    std::cout << bsp(a, b, c, inside) << " : Point inside" << std::endl;   // Should output 1 (true)
+    std::cout << bsp(a, b, c, outside) <<" : Point outside" << std::endl; // Should output 0 (false)
 
     return 0;
 }
