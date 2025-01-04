@@ -3,5 +3,7 @@
 int main()
 {
     ClapTrap obj;
+
+    obj.attack();
     
 }
