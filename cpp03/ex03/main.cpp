@@ -1,21 +1,22 @@
+#include "DiamondTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
 int main()
 {
-    FragTrap fragTrap("FragTrap");
-    fragTrap.highFivesGuys();
-    fragTrap.attack("target");
-    fragTrap.takeDamage(10);
-    fragTrap.beRepaired(10);
+    DiamondTrap diamondTrap("DiamondTrap");
+    diamondTrap.whoAmI();
+    diamondTrap.attack("target");
+    diamondTrap.takeDamage(10);
+    diamondTrap.beRepaired(10);
 
-    FragTrap fragTrapCopy(fragTrap);
-    fragTrapCopy.attack("another target");
+    DiamondTrap diamondTrapCopy(diamondTrap);
+    diamondTrapCopy.attack("another target");
 
-    FragTrap fragTrapAssigned;
-    fragTrapAssigned = fragTrap;
-    fragTrapAssigned.attack("yet another target");
+    DiamondTrap diamondTrapAssigned;
+    diamondTrapAssigned = diamondTrap;
+    diamondTrapAssigned.attack("yet another target");
 
     return 0;
 }

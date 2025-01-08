@@ -1,18 +1,18 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp
+SRCS = main.cpp ClapTrap.cpp FragTrap.cpp ScavTrap.cpp DiamondTrap.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
-all: FragTrap
+all: DiamondTrap
 
-FragTrap: $(OBJS)
-	$(CXX) $(CXXFLAGS) -o FragTrap $(OBJS)
+DiamondTrap: $(OBJS)
+	$(CXX) $(CXXFLAGS) -o DiamondTrap $(OBJS)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f FragTrap
+	rm -f DiamondTrap
 
 re: fclean all
 
