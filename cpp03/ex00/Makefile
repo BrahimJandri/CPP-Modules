@@ -3,16 +3,16 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp ClapTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-all: claptrap
+all: ClapTrap
 
-claptrap: $(OBJS)
-	$(CXX) $(CXXFLAGS) -o claptrap $(OBJS)
+ClapTrap: $(OBJS)
+	$(CXX) $(CXXFLAGS) -o ClapTrap $(OBJS)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f claptrap
+	rm -f ClapTrap
 
 re: fclean all
 

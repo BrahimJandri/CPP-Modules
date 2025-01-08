@@ -1,14 +1,14 @@
 #include "ClapTrap.hpp"
 
 // Default Constructor
-ClapTrap::ClapTrap() : name(), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap() : name(), hitPoints(0), energyPoints(0), attackDamage(10)
 {
     std::cout << "Default Constructor Called" << std::endl;
 }
 
 // Constructor
 ClapTrap::ClapTrap(const std::string &name)
-    : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
+    : name(name), hitPoints(0), energyPoints(0), attackDamage(0)
 {
     std::cout << "ClapTrap " << name << " constructed!" << std::endl;
 }
@@ -57,12 +57,17 @@ void ClapTrap::attack(const std::string &target)
 }
 
 // Take damage function
-void ClapTrap::takeDamage(unsigned int amount)
-{
-    hitPoints -= amount;
-    if (hitPoints < 0)
+void ClapTrap::takeDamage(unsigned int amount) {
+    if (hitPoints == 0) {
+        std::cout << "ClapTrap " << name << " is dead!" << std::endl;
+        return ;
+    }
+    if (hitPoints <= amount) {
         hitPoints = 0;
-    std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
+    } else {
+        hitPoints -= amount;
+    }
+    std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!" << std::endl;
 }
 
 // Be repaired function

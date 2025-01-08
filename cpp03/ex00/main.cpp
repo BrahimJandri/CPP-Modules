@@ -1,22 +1,16 @@
 #include "ClapTrap.hpp"
 
 int main() {
-    // Create ClapTrap objects
-    ClapTrap clap1("Clappy");
-    ClapTrap clap2("Trapster");
-    ClapTrap clap3;
+    ClapTrap claptrap1("Flan");
 
-    // Test attacks
-    clap1.attack("Trapster");
-    clap2.takeDamage(5);
+    claptrap1.attack("Fltrlan");
+    claptrap1.takeDamage(5);
+    claptrap1.beRepaired(3);
 
-    // Test repairs
-    clap2.beRepaired(3);
-
-    // Exhaust energy
-    for (int i = 0; i < 12; ++i) {
-        clap1.attack("Trapster");
-    }
+    ClapTrap claptrap2("Flana");
+    claptrap2.attack("Fltrlana");
+    claptrap2.takeDamage(10);
+    claptrap2.beRepaired(10);
 
     return 0;
 }
