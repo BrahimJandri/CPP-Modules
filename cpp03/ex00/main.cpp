@@ -5,7 +5,7 @@ int main() {
 
     claptrap1.attack("Fltrlan");
     claptrap1.takeDamage(5);
-    claptrap1.beRepaired(3);
+    claptrap1.beRepaired(5);
 
     ClapTrap claptrap2("Flana");
     claptrap2.attack("Fltrlana");
