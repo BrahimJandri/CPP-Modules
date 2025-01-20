@@ -12,7 +12,6 @@ public:
     Cat &operator=(const Cat &other);
     virtual ~Cat();
 
-    void meow();
     void makeSound() const;
 };
 

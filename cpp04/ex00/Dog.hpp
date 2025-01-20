@@ -12,7 +12,6 @@ public:
     Dog &operator=(const Dog &other);
     virtual ~Dog();
 
-    void bark();
     void makeSound() const;
 };
 
