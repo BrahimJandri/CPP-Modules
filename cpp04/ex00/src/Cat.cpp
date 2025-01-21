@@ -1,4 +1,4 @@
-#include "Cat.hpp"
+#include "../headers/Cat.hpp"
 
 
 // default constructor

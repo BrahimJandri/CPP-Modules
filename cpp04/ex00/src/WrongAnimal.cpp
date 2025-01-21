@@ -1,4 +1,4 @@
-#include "WrongAnimal.hpp"
+#include "../headers/WrongAnimal.hpp"
 
 // default constructor
 WrongAnimal::WrongAnimal() : type("WrongAnimal")

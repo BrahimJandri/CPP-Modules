@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -std=c++98 -g -fsanitize=address
 
-SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = ./src/Animal.cpp ./src/Cat.cpp ./src/Dog.cpp main.cpp ./src/WrongAnimal.cpp ./src/WrongCat.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: Animal_sound

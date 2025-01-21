@@ -1,4 +1,4 @@
-#include "WrongCat.hpp"
+#include "../headers/WrongCat.hpp"
 
 // default constructor
 WrongCat::WrongCat() : WrongAnimal()
