@@ -3,10 +3,12 @@
 
 #include <iostream>
 
+#define MAX_IDEAS 100
+
 class Brain
 {
 private:
-    std::string ideas[100];
+    std::string ideas[MAX_IDEAS];
     
 public:
     Brain();

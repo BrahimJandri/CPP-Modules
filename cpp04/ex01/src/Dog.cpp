@@ -2,7 +2,7 @@
 
 
 // default constructor
-Dog::Dog() : Animal()
+Dog::Dog() : Animal(), brain(new Brain())
 {
     type = "Dog";
     std::cout << "Dog constructor called" << std::endl;
@@ -23,6 +23,8 @@ Dog &Dog::operator=(const Dog &other)
     if (this != &other)
     {
         Animal::operator=(other);
+        delete brain; // delete the old brain object before assigning the new one
+        brain = new Brain(*other.brain); // create a new brain object and copy the other's brain object
     }
     return *this;
 }
@@ -30,6 +32,7 @@ Dog &Dog::operator=(const Dog &other)
 // destructor
 Dog::~Dog()
 {
+    delete brain;
     std::cout << "Dog destructor called" << std::endl;
 }
 
