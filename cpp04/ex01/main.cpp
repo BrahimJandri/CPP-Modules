@@ -1,23 +1,49 @@
-#include "./headers/Cat.hpp"
+#include "./headers/Animal.hpp"
 #include "./headers/Dog.hpp"
-#include "./headers/Brain.hpp"
+#include "./headers/Cat.hpp"
 
 int main()
 {
-    Animal *animals[100];
-    for (int i = 0; i < 50; ++i)
+
+    const int arraySize = 6;
+    Animal *animals[arraySize];
+
+    for (int i = 0; i < arraySize / 2; i++)
     {
         animals[i] = new Dog();
     }
-    for (int i = 50; i < 100; ++i)
+    for (int i = arraySize / 2; i < arraySize; i++)
     {
         animals[i] = new Cat();
     }
 
-    for (int i = 0; i < 100; ++i)
+    std::cout << "===========MAKESOUND=======" << std::endl;
+
+    for (int i = 0; i < arraySize; i++)
+    {
+        animals[i]->makeSound();
+    }
+
+    std::cout << "===========DESTRUCTOR=======" << std::endl;
+
+    for (int i = 0; i < arraySize; i++)
     {
         delete animals[i];
     }
+
+    std::cout << "===========DOG=======" << std::endl;
+
+    Dog dog;
+    dog.getBrain()->setIdea("I am a dog", 0);
+    std::cout << dog.getBrain()->getIdea(0) << std::endl;
+
+    std::cout << "===========CAT=======" << std::endl;
+
+    Cat cat;
+    dog.getBrain()->setIdea("I am a cat", 0);
+    std::cout << dog.getBrain()->getIdea(0) << std::endl;
+
+    std::cout << "===========DESTRUCTOR=======" << std::endl;
 
     return 0;
 }
