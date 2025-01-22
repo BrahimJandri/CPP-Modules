@@ -4,46 +4,20 @@
 
 int main()
 {
+    std::cout << "===========Default Constructor=======" << std::endl;
+    
+    AAnimal *myDog = new Dog();
+    AAnimal *myCat = new Cat();
 
-    const int arraySize = 6;
-    Animal *animals[arraySize];
+    std::cout << "===========Sound=======" << std::endl;
 
-    for (int i = 0; i < arraySize / 2; i++)
-    {
-        animals[i] = new Dog();
-    }
-    for (int i = arraySize / 2; i < arraySize; i++)
-    {
-        animals[i] = new Cat();
-    }
+    myDog->makeSound(); // Outputs: Woof!
+    myCat->makeSound(); // Outputs: Meow!
 
-    std::cout << "===========MAKESOUND=======" << std::endl;
+    std::cout << "===========Default Destructor=======" << std::endl;
 
-    for (int i = 0; i < arraySize; i++)
-    {
-        animals[i]->makeSound();
-    }
-
-    std::cout << "===========DESTRUCTOR=======" << std::endl;
-
-    for (int i = 0; i < arraySize; i++)
-    {
-        delete animals[i];
-    }
-
-    std::cout << "===========DOG=======" << std::endl;
-
-    Dog dog;
-    dog.getBrain()->setIdea("I am a dog", 0);
-    std::cout << dog.getBrain()->getIdea(0) << std::endl;
-
-    std::cout << "===========CAT=======" << std::endl;
-
-    Cat cat;
-    dog.getBrain()->setIdea("I am a cat", 0);
-    std::cout << dog.getBrain()->getIdea(0) << std::endl;
-
-    std::cout << "===========DESTRUCTOR=======" << std::endl;
+    delete myDog;
+    delete myCat;
 
     return 0;
 }

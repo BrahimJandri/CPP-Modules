@@ -2,10 +2,10 @@
 #include "./headers/Dog.hpp"
 #include "./headers/Cat.hpp"
 
+#define arraySize 10
+
 int main()
 {
-
-    const int arraySize = 6;
     Animal *animals[arraySize];
 
     for (int i = 0; i < arraySize / 2; i++)
