@@ -1,5 +1,5 @@
-#include "Cure.hpp"
-#include "ICharacter.hpp"
+#include "../header/Cure.hpp"
+#include "../header/ICharacter.hpp"
 #include <iostream>
 
 Cure::Cure() : AMateria("cure") {}

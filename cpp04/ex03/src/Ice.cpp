@@ -1,5 +1,5 @@
-#include "Ice.hpp"
-#include "ICharacter.hpp"
+#include "../header/Ice.hpp"
+#include "../header/ICharacter.hpp"
 #include <iostream>
 
 Ice::Ice() : AMateria("ice") {}

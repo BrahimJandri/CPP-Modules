@@ -1,4 +1,4 @@
-#include "Character.hpp"
+#include "../header/Character.hpp"
 
 Character::Character(std::string const &name) : name(name)
 {
