@@ -1,19 +1,18 @@
 #ifndef ICE_HPP
 #define ICE_HPP
 
-#include <ICharacter.hpp>
-#include <AMateria.hpp>
+#include "AMateria.hpp"
 
 class Ice : public AMateria
 {
 public:
     Ice();
-    Ice(const Ice &ice);
-    Ice operator=(const Ice &copy);
-    void use(ICharacter &target);
-    Ice(std::string const &type);
+    Ice(const Ice &other);
+    Ice &operator=(const Ice &other);
+    ~Ice() {}
+
     AMateria *clone() const;
-    ~Ice();
+    void use(ICharacter &target);
 };
 
-#endif // ICE_HPP
+#endif
