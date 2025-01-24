@@ -17,7 +17,7 @@ int main()
 
     std::cout << std::endl;
 
-    i->makeSound(); // will output the cat sound!
+    i->makeSound();
     j->makeSound();
     meta->makeSound();
 
@@ -32,7 +32,7 @@ int main()
 
     std::cout << std::endl;
 
-    j2->makeSound(); // will output the cat sound!
+    j2->makeSound();
 
     std::cout << std::endl;
 

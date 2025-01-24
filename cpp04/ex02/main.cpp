@@ -11,8 +11,8 @@ int main()
 
     std::cout << "===========Sound=======" << std::endl;
 
-    myDog->makeSound(); // Outputs: Woof!
-    myCat->makeSound(); // Outputs: Meow!
+    myDog->makeSound();
+    myCat->makeSound();
 
     std::cout << "===========Default Destructor=======" << std::endl;
 
