@@ -1,40 +1,33 @@
 #include "../headers/Cat.hpp"
 
-
-// default constructor
 Cat::Cat() : Animal(), brain(new Brain())
 {
     type = "Cat";
     std::cout << "Cat constructor called" << std::endl;
 }
 
-// copy constructor
-Cat::Cat(const Cat &other) : Animal(other), brain(new Brain(*other.brain)) // create a new brain object and copy the other's brain object
+Cat::Cat(const Cat &other) : Animal(other), brain(new Brain(*other.brain))
 {
     std::cout << "Cat copy constructor called" << std::endl;
 }
 
-// assignment operator
-Cat &Cat::operator=(const Cat &other) // create a new brain object and copy the other's brain object
+Cat &Cat::operator=(const Cat &other)
 {
     std::cout << "Cat assignment operator called" << std::endl;
     if (this != &other)
     {
         Animal::operator=(other);
-        delete brain; // delete the old brain object before assigning the new one
-        brain = new Brain(*other.brain); // create a new brain object and copy the other's brain object
+        delete brain;
+        brain = new Brain(*other.brain);
     }
-    return *this; 
+    return *this;
 }
 
-
-// destructor
 Cat::~Cat()
 {
     delete brain;
     std::cout << "Cat destructor called" << std::endl;
 }
-
 
 void Cat::makeSound() const
 {
