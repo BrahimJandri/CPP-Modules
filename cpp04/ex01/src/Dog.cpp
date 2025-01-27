@@ -1,35 +1,28 @@
 #include "../headers/Dog.hpp"
 
-
-// default constructor
 Dog::Dog() : Animal(), brain(new Brain())
 {
     type = "Dog";
     std::cout << "Dog constructor called" << std::endl;
 }
 
-
-// copy constructor
-Dog::Dog(const Dog &other) : Animal(other)
-{
+Dog::Dog(const Dog &other) : Animal(other), brain(new Brain(*other.brain))
+{    
     std::cout << "Dog copy constructor called" << std::endl;
 }
 
-
-// assignment operator
 Dog &Dog::operator=(const Dog &other)
 {
     std::cout << "Dog assignment operator called" << std::endl;
     if (this != &other)
     {
         Animal::operator=(other);
-        delete brain; // delete the old brain object before assigning the new one
-        brain = new Brain(*other.brain); // create a new brain object and copy the other's brain object
+        delete brain;
+        brain = new Brain(*other.brain);
     }
     return *this;
 }
 
-// destructor
 Dog::~Dog()
 {
     delete brain;

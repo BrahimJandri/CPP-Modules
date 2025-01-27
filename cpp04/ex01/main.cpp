@@ -40,9 +40,11 @@ int main()
     std::cout << "===========CAT=======" << std::endl;
 
     Cat cat;
-    dog.getBrain()->setIdea("I am a cat", 0);
-    std::cout << dog.getBrain()->getIdea(0) << std::endl;
-
+    cat.getBrain()->setIdea("I am a cat", 0);
+    std::cout << cat.getBrain()->getIdea(0) << std::endl;
+    Dog j(dog);
+    j.getBrain()->setIdea("I am a j dog", 0);
+    std::cout << j.getBrain()->getIdea(0) << std::endl;
     std::cout << "===========DESTRUCTOR=======" << std::endl;
 
     return 0;
