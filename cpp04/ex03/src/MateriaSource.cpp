@@ -26,9 +26,10 @@ void MateriaSource::learnMateria(AMateria *m)
         if (learned[i] == NULL)
         {
             learned[i] = m;
-            break;
+            return;
         }
     }
+    delete m;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)

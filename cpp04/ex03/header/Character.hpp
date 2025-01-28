@@ -9,8 +9,10 @@ class Character : public ICharacter
 private:
     std::string name;
     AMateria *inventory[4];
+    AMateria *saved[4];
 
 public:
+    Character();
     Character(std::string const &name);
     Character(const Character &other);
     Character &operator=(const Character &other);

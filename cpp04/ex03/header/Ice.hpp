@@ -9,7 +9,7 @@ public:
     Ice();
     Ice(const Ice &other);
     Ice &operator=(const Ice &other);
-    ~Ice() {}
+    ~Ice();
 
     AMateria *clone() const;
     void use(ICharacter &target);
