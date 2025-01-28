@@ -3,16 +3,20 @@
 
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
+#include <string>
+#include <iostream>
+#include <ostream>
 
-class MateriaSource : public IMateriaSource {
+class MateriaSource : public IMateriaSource
+{
 private:
-    AMateria* learned[4];
+    AMateria *learned[4];
 
 public:
     MateriaSource();
     ~MateriaSource();
-    void learnMateria(AMateria*);
-    AMateria* createMateria(std::string const & type);
+    void learnMateria(AMateria *);
+    AMateria *createMateria(std::string const &type);
 };
 
 #endif

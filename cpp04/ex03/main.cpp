@@ -2,8 +2,7 @@
 #include "./header/Ice.hpp"
 #include "./header/Cure.hpp"
 #include "./header/Character.hpp"
-#include <iostream>
-#include <ostream>
+
 
 
 int main()
@@ -79,6 +78,26 @@ int main()
     delete bob2;
     delete me2;
     delete src2;
+    std::cout << "===========TEST: 4===========" << std::endl;
+    IMateriaSource* src3 = new MateriaSource();
+    src3->learnMateria(new Ice());
+    src3->learnMateria(new Cure());
+    ICharacter* me3 = new Character("me");
+    AMateria* tmp3;
+    tmp3 = src3->createMateria("ice");
+    me3->equip(tmp3);
+    tmp3 = src3->createMateria("cure");
+    me3->equip(tmp3);
+    tmp3 = src3->createMateria("ice create");
+    me3->equip(tmp3);
+
+    ICharacter* bob3 = new Character("bob");
+    me3->use(0, *bob3);
+    me3->use(1, *bob3);
+    me3->use(2, *bob3);
+    delete bob3;
+    delete me3;
+    delete src3;
 
     return 0;
 
