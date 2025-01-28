@@ -39,6 +39,11 @@ int main()
     cat2.getBrain()->setIdea("I am a cat2", 0);
     std::cout << cat.getBrain()->getIdea(0) << std::endl;
     std::cout << cat2.getBrain()->getIdea(0) << std::endl;
+    std::cout << "===========BRAIN SET IDEA=======" << std::endl;
+    Brain *brain = new Brain();
+    brain->setIdea("I am a brain", 0);
+    std::cout << brain->getIdea(0) << std::endl;
+    delete brain;
     std::cout << "===========DESTRUCTOR=======" << std::endl;
 
     return 0;
