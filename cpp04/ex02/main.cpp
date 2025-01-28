@@ -5,17 +5,12 @@
 int main()
 {
     std::cout << "===========Default Constructor=======" << std::endl;
-    
     AAnimal *myDog = new Dog();
     AAnimal *myCat = new Cat();
-
     std::cout << "===========Sound=======" << std::endl;
-
     myDog->makeSound();
     myCat->makeSound();
-
     std::cout << "===========Default Destructor=======" << std::endl;
-
     delete myDog;
     delete myCat;
 
