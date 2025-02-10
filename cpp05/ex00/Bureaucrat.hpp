@@ -6,6 +6,9 @@
 class Bureaucrat
 {
     std::string const &name;
+
+    std::string getName();
+    int getGrade(int &garde);
 };
 
 #endif
