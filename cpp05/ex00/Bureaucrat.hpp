@@ -26,20 +26,16 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-        const char *what() const throw() override
-        {
-            return "Grade Too High Exception";
-        }
+        const char *what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-        const char *what() const throw() override
-        {
-            return "Grade Too Low Exception";
-        }
+        const char *what() const throw();
     };
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
 
 #endif

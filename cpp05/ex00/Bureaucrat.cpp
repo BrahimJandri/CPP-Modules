@@ -1,23 +1,23 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name(), _grade(1)
+Bureaucrat::Bureaucrat() : _name("Bob"), _grade(1)
 {
     std::cout << "Default Constractor Called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
     if (this->_grade < 1)
         throw GradeTooHighException();
     else if (this->_grade > 150)
         throw GradeTooLowException();
-    else
-        this->_grade = other._grade;
-    std::cout << "Copy Constractor Called" << std::endl;
+    std::cout << "Copy Constructor Called" << std::endl;
 }
+
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
+    std::cout << "Copy Assignement Called" << std::endl;
     if (this != &other)
     {
         this->_grade = other._grade;
@@ -73,4 +73,20 @@ void Bureaucrat::decrementGrade()
     {
         throw GradeTooLowException();
     }
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
+{
+    out << b.getName() << ", bureaucrat grade " << b.getGrade();
+    return out;
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+    return "Grade Too High Exception";
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "Grade Too Low Exception";
 }
