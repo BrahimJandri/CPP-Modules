@@ -8,7 +8,7 @@ int main()
         std::cout << obj << std::endl;
         Bureaucrat kra;
         kra = obj;
-        kra.incrementGrade();
+        kra.decrementGrade();
         std::cout << kra << std::endl;
         Bureaucrat obj2(obj);
         std::cout << obj2 << std::endl;
