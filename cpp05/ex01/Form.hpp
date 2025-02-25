@@ -29,6 +29,12 @@ public:
     public:
         const char *what() const throw();
     };
+
+    int getGradeSigne();
+    int getGradeExec();
+    const std::string &getName() const;
+    bool getBoolSign();
+
 };
 
 std::ostream &operator<<(std::ostream &out, const Form &b);
