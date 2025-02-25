@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <stdexcept>
+#include "Bureaucrat.hpp"
 
 
 class Form
@@ -16,6 +16,22 @@ private:
 public:
     Form();
     ~Form();
+    beSigned(Bureaucrat &Bureaucrat)
+
+    class GradeTooHighException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
+
+    class GradeTooLowException : public std::exception
+    {
+    public:
+        const char *what() const throw();
+    };
 };
+
+std::ostream &operator<<(std::ostream &out, const Form &b);
+
 
 #endif

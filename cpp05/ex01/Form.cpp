@@ -9,3 +9,19 @@ Form::~Form()
 {
     std::cout << "Default Destructer Called" << std::endl;
 }
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return "Grade Too High Exception";
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return "Grade Too Low Exception";
+}
+
+std::ostream &operator<<(std::ostream &out, const Form &b)
+{
+    out << b.getName() << ", bureaucrat grade " << b.getGrade();
+    return out;
+}
