@@ -16,7 +16,7 @@ private:
 public:
     Form();
     ~Form();
-    beSigned(Bureaucrat &Bureaucrat)
+    beSigned(Bureaucrat &Bureaucrat);
 
     class GradeTooHighException : public std::exception
     {

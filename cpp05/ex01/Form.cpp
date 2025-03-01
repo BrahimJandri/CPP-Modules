@@ -22,6 +22,15 @@ const char *Form::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &out, const Form &b)
 {
-    out << b.getName() << ", bureaucrat grade " << b.getGrade();
     return out;
+}
+
+int Form::getGradeSigne()
+{
+    return _gradeSigne;
+}
+
+int Form::getGradeExec()
+{
+    return _gradeExec;
 }
