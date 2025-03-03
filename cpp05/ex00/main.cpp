@@ -6,11 +6,9 @@ int main()
     {
         Bureaucrat obj("brahim", 150);
         std::cout << obj << std::endl;
-        Bureaucrat kra;
-        kra = obj;
-        kra.decrementGrade();
-        std::cout << kra << std::endl;
-        Bureaucrat obj2(obj);
+        Bureaucrat obj2;
+        obj2 = obj;
+        obj2.incrementGrade();
         std::cout << obj2 << std::endl;
     }
     catch(const std::exception& e)
