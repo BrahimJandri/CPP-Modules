@@ -2,7 +2,6 @@
 
 Bureaucrat::Bureaucrat() : _name("Bob"), _grade(1)
 {
-    std::cout << "Default Constractor Called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade)
@@ -11,13 +10,11 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
         throw GradeTooHighException();
     else if (this->_grade > 150)
         throw GradeTooLowException();
-    std::cout << "Copy Constructor Called" << std::endl;
 }
 
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
-    std::cout << "Copy Assignement Called" << std::endl;
     if (this != &other)
     {
         this->_grade = other._grade;
@@ -27,7 +24,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Default Destractor Called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade)
