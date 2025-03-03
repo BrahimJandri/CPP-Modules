@@ -4,8 +4,9 @@ int main()
 {
     try
     {
-        Bureaucrat forma("brahim", 10, 12);
-        Form bihi();
+        Bureaucrat forma("brahim", 10);
+        Form bihi("bihi", 15, 10);
+        bihi.beSigned(forma);
         std::cout << bihi << std::endl;
     }
     catch(const std::exception& e)
