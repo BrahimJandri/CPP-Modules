@@ -30,7 +30,6 @@ Form &Form::operator=(const Form &other)
 {
     if (this != &other)
     {
-        // Can't assign to const attributes, but we can copy the signed status
         _signed = other._signed;
     }
     return *this;
