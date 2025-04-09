@@ -5,8 +5,7 @@
 
 class ShrubberyCreationForm : public Form
 {
-private:
-    
+
 public:
     ShrubberyCreationForm();
     ~ShrubberyCreationForm();
