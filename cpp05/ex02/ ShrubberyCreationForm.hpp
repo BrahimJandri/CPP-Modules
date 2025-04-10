@@ -8,6 +8,8 @@ class ShrubberyCreationForm : public Form
 
 public:
     ShrubberyCreationForm();
+    ShrubberyCreationForm(const ShrubberyCreationForm &other);
+    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
     ~ShrubberyCreationForm();
 };
 
