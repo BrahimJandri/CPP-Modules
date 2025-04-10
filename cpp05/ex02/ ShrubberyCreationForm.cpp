@@ -1,6 +1,11 @@
 #include " ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(form::)
+ShrubberyCreationForm::ShrubberyCreationForm()
 {
 
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+    
 }
