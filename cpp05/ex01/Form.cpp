@@ -1,7 +1,5 @@
-// Form.cpp
 #include "Form.hpp"
 
-// Constructors and Destructor
 Form::Form() : _name("Default Form"), _signed(false), _gradeToSign(150), _gradeToExecute(150)
 {
 }
@@ -25,7 +23,6 @@ Form::~Form()
 {
 }
 
-// Assignment operator
 Form &Form::operator=(const Form &other)
 {
     if (this != &other)
@@ -35,7 +32,6 @@ Form &Form::operator=(const Form &other)
     return *this;
 }
 
-// Getters
 std::string Form::getName() const
 {
     return _name;
@@ -56,7 +52,6 @@ int Form::getGradeToExecute() const
     return _gradeToExecute;
 }
 
-// Member functions
 void Form::beSigned(const Bureaucrat &bureaucrat)
 {
     if (bureaucrat.getGrade() <= _gradeToSign)
@@ -65,7 +60,6 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
         throw Form::GradeTooLowException();
 }
 
-// Exception classes
 const char *Form::GradeTooHighException::what() const throw()
 {
     return "Form grade is too high";
@@ -76,7 +70,6 @@ const char *Form::GradeTooLowException::what() const throw()
     return "Form grade is too low";
 }
 
-// Insertion operator overload
 std::ostream &operator<<(std::ostream &os, const Form &form)
 {
     os << "Form: " << form.getName()

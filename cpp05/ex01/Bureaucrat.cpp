@@ -12,7 +12,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(oth
         throw GradeTooLowException();
 }
 
-
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
     if (this != &other)

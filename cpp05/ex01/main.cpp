@@ -4,8 +4,8 @@ int main()
 {
     try
     {
-        Bureaucrat forma("brahim", 10);
-        Form bihi("bihi", 10, 10);
+        Bureaucrat forma("brahim", 50);
+        Form bihi("bihi", 50, 10);
         bihi.beSigned(forma);
         std::cout << bihi << std::endl;
     }
