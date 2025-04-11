@@ -4,7 +4,7 @@
 #include <string>
 #include <stdexcept>
 #include <iostream>
-#include <Form.hpp>
+#include "Form.hpp"
 
 class Form;
 
@@ -25,7 +25,7 @@ public:
     int getGrade() const;
     void incrementGrade();
     void decrementGrade();
-    void singForm(Form &form);
+    void signForm(Form &form) const;
 
     class GradeTooHighException : public std::exception
     {
