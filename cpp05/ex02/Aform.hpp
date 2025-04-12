@@ -5,10 +5,10 @@
 #include <string>
 #include "Bureaucrat.hpp"
 
+class Bureaucrat;
 
-class Bureaucrat; // Forward declaration to avoid circular dependency
-
-class Form {
+class Form
+{
 private:
     const std::string _name;
     bool _signed;
@@ -16,37 +16,33 @@ private:
     const int _gradeToExecute;
 
 public:
-    // Constructors and Destructor
     Form();
-    Form(const std::string& name, int gradeToSign, int gradeToExecute);
-    Form(const Form& other);
+    Form(const std::string &name, int gradeToSign, int gradeToExecute);
+    Form(const Form &other);
     ~Form();
 
-    // Assignment operator
-    Form& operator=(const Form& other);
+    Form &operator=(const Form &other);
 
-    // Getters
     std::string getName() const;
     bool isSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;
 
-    // Member functions
-    void beSigned(const Bureaucrat& bureaucrat);
+    void beSigned(const Bureaucrat &bureaucrat);
 
-    // Exception classes
-    class GradeTooHighException : public std::exception {
+    class GradeTooHighException : public std::exception
+    {
     public:
-        virtual const char* what() const throw();
+        virtual const char *what() const throw();
     };
 
-    class GradeTooLowException : public std::exception {
+    class GradeTooLowException : public std::exception
+    {
     public:
-        virtual const char* what() const throw();
+        virtual const char *what() const throw();
     };
 };
 
-// Insertion operator overload
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream &operator<<(std::ostream &os, const Form &form);
 
 #endif
