@@ -5,9 +5,13 @@
 
 class ShrubberyCreationForm : public Form
 {
+private:
+    const int _gradeToSign;
+    const int _gradeToExecute;
 
 public:
     ShrubberyCreationForm();
+    ShrubberyCreationForm(Form &form);
     ShrubberyCreationForm(const ShrubberyCreationForm &other);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
     ~ShrubberyCreationForm();
