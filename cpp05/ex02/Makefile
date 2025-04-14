@@ -1,18 +1,18 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-SRC = main.cpp Bureaucrat.cpp Aform.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
-all: Form
+all: Forms
 
-Form: $(OBJ)
-	$(CXX) $(CXXFLAGS) -o Form $(OBJ)
+Forms: $(OBJ)
+	$(CXX) $(CXXFLAGS) -o Forms $(OBJ)
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf Form
+	rm -rf Forms
 
 re: fclean all
 

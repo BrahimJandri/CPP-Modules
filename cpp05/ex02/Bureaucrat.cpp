@@ -86,7 +86,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return "Grade Too Low Exception";
 }
 
-void Bureaucrat::signForm(Form &form) const
+void Bureaucrat::signForm(AForm &form) const
 {
     try
     {
