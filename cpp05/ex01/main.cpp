@@ -2,7 +2,6 @@
 
 int main()
 {
-    Bureaucrat dive;
     Bureaucrat bob("Bob", 50);
     Bureaucrat alice("Alice", 20);
     Bureaucrat charlie("Charlie", 1);
@@ -11,7 +10,6 @@ int main()
     Form formB("FormB", 15, 10);
     Form formC("FormC", 1, 1);
 
-    std::cout << dive << std::endl;
     std::cout << "Testing Form Signing..." << std::endl;
     std::cout << formA << std::endl;
     try
