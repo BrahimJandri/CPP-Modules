@@ -2,11 +2,9 @@
 
 int main()
 {
-    Bureaucrat Alice("Alice", 1);
-    Alice.decrementGrade();
-    std::cout << Alice << std::endl;
     try
     {
+        Bureaucrat Alice("Alice", 1);
         Alice.incrementGrade();
         std::cout << Alice << std::endl;
     }
@@ -15,11 +13,9 @@ int main()
         std::cerr << e.what() << std::endl;
     }
 
-    Bureaucrat John("John", 150);
-    John.incrementGrade();
-    std::cout << John << std::endl;
     try
     {
+        Bureaucrat John("John", 150);
         John.decrementGrade();
         std::cout << John << std::endl;
     }
