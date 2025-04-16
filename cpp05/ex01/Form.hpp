@@ -21,7 +21,6 @@ public:
     Form &operator=(const Form &other);
     ~Form();
 
-
     std::string getName() const;
     bool isSigned() const;
     int getGradeToSign() const;
@@ -32,13 +31,13 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-         const char *what() const throw();
+        const char *what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-         const char *what() const throw();
+        const char *what() const throw();
     };
 };
 
