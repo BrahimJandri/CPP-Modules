@@ -15,10 +15,6 @@ Form::Form(const Form &other)
 {
 }
 
-Form::~Form()
-{
-}
-
 Form &Form::operator=(const Form &other)
 {
     if (this != &other)
@@ -26,6 +22,10 @@ Form &Form::operator=(const Form &other)
         _isSigned = other._isSigned;
     }
     return *this;
+}
+
+Form::~Form()
+{
 }
 
 std::string Form::getName() const
