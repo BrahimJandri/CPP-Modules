@@ -21,10 +21,25 @@ AForm &AForm::operator=(const AForm &other)
 
 AForm::~AForm() {}
 
-const std::string &AForm::getName() const { return _name; }
-bool AForm::isSigned() const { return _signed; }
-int AForm::getGradeToSign() const { return _gradeToSign; }
-int AForm::getGradeToExecute() const { return _gradeToExecute; }
+const std::string &AForm::getName() const
+{
+    return _name;
+}
+
+bool AForm::isSigned() const
+{
+    return _signed;
+}
+
+int AForm::getGradeToSign() const
+{
+    return _gradeToSign;
+}
+
+int AForm::getGradeToExecute() const
+{
+    return _gradeToExecute;
+}
 
 void AForm::beSigned(const Bureaucrat &b)
 {

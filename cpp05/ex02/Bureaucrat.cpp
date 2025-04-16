@@ -19,19 +19,32 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 
 Bureaucrat::~Bureaucrat() {}
 
-const std::string &Bureaucrat::getName() const { return _name; }
-int Bureaucrat::getGrade() const { return _grade; }
+const std::string &Bureaucrat::getName() const
+{
+    return _name;
+}
+
+int Bureaucrat::getGrade() const
+{
+    return _grade;
+}
 
 void Bureaucrat::incrementGrade()
 {
-    if (--_grade < 1)
+    _grade--;
+    if (_grade < 1)
+    {
         throw GradeTooHighException();
+    }
 }
 
 void Bureaucrat::decrementGrade()
 {
-    if (++_grade > 150)
+    _grade++;
+    if (_grade > 150)
+    {
         throw GradeTooLowException();
+    }
 }
 
 void Bureaucrat::signForm(AForm &form) const
