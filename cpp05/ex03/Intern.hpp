@@ -1,13 +1,10 @@
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-#include <string>
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include <iostream>
-#include <cctype>
 
 class Intern
 {
@@ -18,6 +15,7 @@ public:
     ~Intern();
 
     AForm *makeForm(const std::string &formName, const std::string &target);
+    std::string toLowerCase(const std::string &input);
 
 private:
     typedef AForm *(*AFormCreator)(const std::string &);

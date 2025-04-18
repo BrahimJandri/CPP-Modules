@@ -5,7 +5,7 @@ int main()
     Intern someRandomIntern;
     AForm *form;
 
-    form = someRandomIntern.makeForm("robotomy request", "Bender");
+    form = someRandomIntern.makeForm("robotomy rEquest", "Bender");
     if (form)
         delete form;
 

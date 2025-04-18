@@ -33,7 +33,7 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target)
 
     for (int i = 0; i < 3; ++i)
     {
-        if (formNames[i] == formName)
+        if (formNames[i] == toLowerCase(formName))
         {
             std::cout << "Intern creates " << formName << std::endl;
             return creators[i](target);
@@ -42,4 +42,14 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target)
 
     std::cerr << "Error: Form '" << formName << "' does not exist." << std::endl;
     return NULL;
+}
+
+std::string Intern::toLowerCase(const std::string &input)
+{
+    std::string result = input;
+    for (std::string::size_type i = 0; i < result.length(); ++i)
+    {
+        result[i] = static_cast<char>(std::tolower(static_cast<unsigned char>(result[i])));
+    }
+    return result;
 }
