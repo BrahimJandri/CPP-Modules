@@ -9,7 +9,7 @@ int main()
     if (form)
         delete form;
 
-    form = someRandomIntern.makeForm("shrubbery creation", "Nobody");
+    form = someRandomIntern.makeForm("Shrubbery creation", "Nobody");
     if (form)
         delete form;
 

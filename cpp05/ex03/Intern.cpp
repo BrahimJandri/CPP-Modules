@@ -5,19 +5,17 @@ Intern::Intern(const Intern &) {}
 Intern &Intern::operator=(const Intern &) { return *this; }
 Intern::~Intern() {}
 
-typedef AForm *(*AFormCreator)(const std::string &);
-
-static AForm *createShrubbery(const std::string &target)
+AForm *Intern::createShrubbery(const std::string &target)
 {
     return new ShrubberyCreationForm(target);
 }
 
-static AForm *createRobotomy(const std::string &target)
+AForm *Intern::createRobotomy(const std::string &target)
 {
     return new RobotomyRequestForm(target);
 }
 
-static AForm *createPresidential(const std::string &target)
+AForm *Intern::createPresidential(const std::string &target)
 {
     return new PresidentialPardonForm(target);
 }
@@ -28,7 +26,7 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target)
         "shrubbery creation",
         "robotomy request",
         "presidential pardon"};
-    FormCreator creators[] = {
+    AFormCreator creators[] = {
         &createShrubbery,
         &createRobotomy,
         &createPresidential};
