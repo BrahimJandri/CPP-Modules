@@ -26,17 +26,17 @@ public:
 
     void signForm(AForm &form) const;
     void executeForm(const AForm &form) const;
-    
+
     class GradeTooHighException : public std::exception
     {
     public:
-         const char *what() const throw();
+        const char *what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
     public:
-         const char *what() const throw();
+        const char *what() const throw();
     };
 };
 

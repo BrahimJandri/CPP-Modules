@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "AForm.hpp"
 #include <iostream>
 
@@ -17,4 +16,3 @@ public:
 
     void execute(const Bureaucrat &executor) const;
 };
-

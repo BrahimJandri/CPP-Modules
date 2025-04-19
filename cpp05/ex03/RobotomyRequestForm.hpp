@@ -19,4 +19,3 @@ public:
 
     void execute(const Bureaucrat &executor) const;
 };
-
