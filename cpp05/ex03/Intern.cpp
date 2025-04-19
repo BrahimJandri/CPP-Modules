@@ -44,7 +44,7 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target)
     return NULL;
 }
 
-std::string Intern::toLowerCase(const std::string &input)
+std::string toLowerCase(const std::string &input)
 {
     std::string result = input;
     for (std::string::size_type i = 0; i < result.length(); ++i)

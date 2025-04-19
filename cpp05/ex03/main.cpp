@@ -21,7 +21,7 @@ int main()
             delete form;
         }
 
-        form = someRandomIntern.makeForm("invalid form", "nowhere");
+        form = someRandomIntern.makeForm("not exist", "Nothing");
         if (form)
         {
             delete form;

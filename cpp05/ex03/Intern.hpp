@@ -15,7 +15,6 @@ public:
     ~Intern();
 
     AForm *makeForm(const std::string &formName, const std::string &target);
-    std::string toLowerCase(const std::string &input);
 
 private:
     typedef AForm *(*AFormCreator)(const std::string &);
@@ -23,5 +22,6 @@ private:
     static AForm *createShrubbery(const std::string &target);
     static AForm *createRobotomy(const std::string &target);
 };
+std::string toLowerCase(const std::string &input);
 
 #endif
