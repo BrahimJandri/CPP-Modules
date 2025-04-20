@@ -1,6 +1,6 @@
+<h1>What is object oriented programming ?</h1>
 Before diving into the core of these five first C++ modules let's first understand the basics of what is C++ and more specifically what is *Object Oriented Programming* (OOP).
 
-**What is object oriented programming ?**
 
 Object-oriented programming (OOP) is a computer programming model that organizes software design around data, or [objects](https://www.techtarget.com/searchapparchitecture/definition/object), rather than functions and logic. An object can be defined as a data field that has unique attributes and behavior.
 
@@ -201,3 +201,10 @@ Fixed-point numbers are a valuable tool in scenarios where floating-point number
 | Does **not** need object | Needs an object to call (has `this` pointer) |
 | Can go in function pointer | Needs special pointer-to-member syntax |
 | Easier to use in arrays | Harder to use in arrays |
+
+
+Feature | Pure Virtual Function (= 0) | Virtual Function (without = 0)
+Implementation | No implementation in the base class. | Can have an implementation in the base class.
+Purpose | Enforces that derived classes must provide an implementation. | Allows derived classes to override or use the base class implementation.
+Instantiation of Base Class | The class becomes abstract and cannot be instantiated. | The class is not abstract and can be instantiated if there are no other pure virtual functions.
+Usage | Used to define abstract interfaces or to force derived classes to implement the function. | Used when a default implementation is needed, but customization is allowed.
