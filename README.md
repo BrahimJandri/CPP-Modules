@@ -203,8 +203,8 @@ Fixed-point numbers are a valuable tool in scenarios where floating-point number
 | Easier to use in arrays | Harder to use in arrays |
 
 
-Feature | Pure Virtual Function (= 0) | Virtual Function (without = 0)
-Implementation | No implementation in the base class. | Can have an implementation in the base class.
-Purpose | Enforces that derived classes must provide an implementation. | Allows derived classes to override or use the base class implementation.
-Instantiation of Base Class | The class becomes abstract and cannot be instantiated. | The class is not abstract and can be instantiated if there are no other pure virtual functions.
-Usage | Used to define abstract interfaces or to force derived classes to implement the function. | Used when a default implementation is needed, but customization is allowed.
+| Feature | Pure Virtual Function (= 0) | Virtual Function (without = 0) |
+| Implementation | No implementation in the base class. | Can have an implementation in the base class. |
+| Purpose | Enforces that derived classes must provide an implementation. | Allows derived classes to override or use the base class implementation. |
+| Instantiation of Base Class | The class becomes abstract and cannot be instantiated. | The class is not abstract and can be instantiated if there are no other pure virtual functions. |
+| Usage | Used to define abstract interfaces or to force derived classes to implement the function. | Used when a default implementation is needed, but customization is allowed. |
