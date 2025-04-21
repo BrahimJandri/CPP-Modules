@@ -10,5 +10,5 @@ public:
     ScalarConverter &operator=(const ScalarConverter &other);
     ~ScalarConverter();
 
-    void convert(std::string )
+    void convert(std::string conv);
 };
