@@ -14,3 +14,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
 }
 
 ScalarConverter::~ScalarConverter() {}
+
+
+void ScalarConverter::convert()
