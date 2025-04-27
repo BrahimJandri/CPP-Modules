@@ -5,7 +5,7 @@ int main()
 {
     Data data;
     data.id = 42;
-    data.name = "ChatGPT";
+    data.name = "Serializer";
 
     uintptr_t raw = Serializer::serialize(&data);
 
