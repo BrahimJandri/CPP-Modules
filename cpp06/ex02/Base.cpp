@@ -38,30 +38,26 @@ void identify(Base &p)
     try
     {
         (void)dynamic_cast<A &>(p);
-        std::cout << "Ref Type: A" << std::endl;
-        return;
+        std::cout << "Ref Type A" << std::endl;
     }
     catch (std::exception &e)
     {
-    }
-
-    try
-    {
-        (void)dynamic_cast<B &>(p);
-        std::cout << "Ref Type: B" << std::endl;
-        return;
-    }
-    catch (std::exception &e)
-    {
-    }
-
-    try
-    {
-        (void)dynamic_cast<C &>(p);
-        std::cout << "Ref Type: C" << std::endl;
-        return;
-    }
-    catch (std::exception &e)
-    {
+        try
+        {
+            (void)dynamic_cast<B &>(p);
+            std::cout << "Ref Type B" << std::endl;
+        }
+        catch (std::exception &e)
+        {
+            try
+            {
+                (void)dynamic_cast<C &>(p);
+                std::cout << "Ref Type C" << std::endl;
+            }
+            catch (std::exception &e)
+            {
+                std::cout << "Ref Unknown Type" << std::endl;
+            }
+        }
     }
 }

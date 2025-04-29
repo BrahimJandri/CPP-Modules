@@ -1,7 +1,7 @@
 #pragma once
 
-#include <cstdlib> // for rand, srand
-#include <ctime>   // for time
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 class Base
