@@ -17,3 +17,5 @@ int main()
     iter(array, 10, printStr);
     return 0;
 }
+
+
