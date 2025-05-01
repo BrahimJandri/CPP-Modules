@@ -1,7 +1,7 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
-SRC = main.cpp Array.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: Array
