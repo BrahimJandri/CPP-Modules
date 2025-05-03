@@ -37,8 +37,8 @@ int main()
     {
         std::cout << _numbers[10] << std::endl;
         std::cout << tmp[10] << std::endl;
-        std::cout << test[10] << std::endl;
-        std::cout << arr[10] << std::endl;
+        std::cout << test[0] << std::endl;
+        std::cout << *arr << std::endl;
     }
     catch (const std::exception &e)
     {
