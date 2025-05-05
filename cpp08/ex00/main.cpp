@@ -3,13 +3,11 @@
 int main()
 {
     std::vector<int> vec;
-    vec.push_back(25);
-    vec.push_back(2);
-    vec.push_back(5);
-    vec.push_back(45);
-    vec.push_back(50);
-    vec.push_back(58);
-    int target = 405;
+    vec.push_back(12);
+    vec.push_back(6);
+    vec.push_back(42);
+    vec.push_back(1337);
+    int target = 1337;
     try
     {
         int index = easyfind(vec, target);
