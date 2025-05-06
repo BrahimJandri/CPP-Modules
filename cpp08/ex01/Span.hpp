@@ -15,11 +15,8 @@ private:
 
 public:
     Span(unsigned int N);
-    ~Span();
-
     void addNumber(unsigned int num);
-
     int shortestSpan();
-
     int longestSpan();
+    ~Span();
 };
