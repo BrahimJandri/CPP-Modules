@@ -6,6 +6,11 @@ void Span::addNumber(unsigned int num)
 {
     if (_span.size() >= _maxSize)
         throw std::runtime_error("Span is full.");
+    for (size_t i = 0; i < _span.size(); ++i)
+    {
+        if (_span[i] == static_cast<int>(num))
+            throw std::runtime_error("Value exist.");
+    }
     _span.push_back(num);
 }
 
