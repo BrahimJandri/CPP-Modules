@@ -18,5 +18,18 @@ public:
     void addNumber(unsigned int num);
     int shortestSpan();
     int longestSpan();
+
+    template <typename InputIterator>
+    void addLotOfNum(InputIterator begin, InputIterator end)
+    {
+        while (begin != end)
+        {
+            if (_span.size() >= _maxSize)
+                throw std::runtime_error("Span is full.");
+            _span.push_back(*begin);
+            ++begin;
+        }
+    };
+
     ~Span();
 };
