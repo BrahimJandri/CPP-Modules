@@ -24,7 +24,6 @@ int main()
         std::cout << *it << std::endl;
         ++it;
     }
-    std::stack<int> s(mstack);
     {
 
         std::cout << "------------------list---------------" << std::endl;
@@ -40,6 +39,7 @@ int main()
         l.push_back(3);
         l.push_back(5);
         l.push_back(737);
+        l.push_back(0);
         std::list<int>::iterator it2 = l.begin();
         std::list<int>::iterator ite3 = l.end();
         ++it2;
