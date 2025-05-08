@@ -1,11 +1,10 @@
 #pragma once
 
-#include <iostream>
 #include <vector>
+#include <stdexcept>
 #include <algorithm>
 #include <limits>
-#include <cmath>
-#include <stdexcept>
+#include <iostream>
 
 class Span
 {
@@ -14,10 +13,15 @@ private:
     unsigned int _maxSize;
 
 public:
+    Span();
     Span(unsigned int N);
-    void addNumber(unsigned int num);
-    int shortestSpan();
-    int longestSpan();
+    Span(const Span &other);
+    Span &operator=(const Span &other);
+    ~Span();
+
+    void addNumber(int num);
+    int shortestSpan() const;
+    int longestSpan() const;
 
     template <typename InputIterator>
     void addLotOfNum(InputIterator begin, InputIterator end)
@@ -29,7 +33,5 @@ public:
             _span.push_back(*begin);
             ++begin;
         }
-    };
-
-    ~Span();
+    }
 };
