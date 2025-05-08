@@ -3,16 +3,13 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept>
+#include <algorithm>
 
 template <typename T>
-int easyfind(T &data, int target)
+typename T::iterator easyfind(T &container, int value)
 {
-    for (size_t i = 0; i < data.size(); ++i)
-    {
-        if (data[i] == target)
-        {
-            return static_cast<int>(i);
-        }
-    }
-    throw std::runtime_error("Value not found in vector.");
+    typename T::iterator it = std::find(container.begin(), container.end(), value);
+    if (it == container.end())
+        throw std::runtime_error("Value not found in container.");
+    return it;
 }

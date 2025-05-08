@@ -3,19 +3,17 @@
 int main()
 {
     std::vector<int> vec;
-    vec.push_back(12);
-    vec.push_back(6);
-    vec.push_back(42);
     vec.push_back(1337);
-    int target = 1337;
+    vec.push_back(42);
+    vec.push_back(01);
+
     try
     {
-        int index = easyfind(vec, target);
-        std::cout << "Found " << target << " at index: " << index << std::endl;
+        std::vector<int>::iterator it = easyfind(vec, 20);
+        std::cout << "Found: " << *it << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << e.what() << std::endl;
     }
-    return 0;
 }
