@@ -4,16 +4,16 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 SRC = main.cpp BitcoinExchange.cpp
 OBJ = $(SRC:.cpp=.o)
 
-all: BitcoinExchange
+all: btc
 
-BitcoinExchange: $(OBJ)
-	$(CXX) $(CXXFLAGS) -o BitcoinExchange $(OBJ)
+btc: $(OBJ)
+	$(CXX) $(CXXFLAGS) -o btc $(OBJ)
 
 clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf BitcoinExchange
+	rm -rf btc
 
 re: fclean all
 
