@@ -1,6 +1,4 @@
 #include "BitcoinExchange.hpp"
-#include <cstdlib>
-#include <climits>
 
 BitcoinExchange::BitcoinExchange(const std::string &dbFile)
 {
@@ -16,7 +14,7 @@ void BitcoinExchange::loadDatabase(const std::string &dbFile)
         throw std::runtime_error("Error: could not open database file.");
 
     std::string line;
-    getline(file, line); // skip header
+    getline(file, line);
 
     while (getline(file, line))
     {
@@ -43,7 +41,6 @@ bool BitcoinExchange::isValidDate(const std::string &date)
     return true;
 }
 
-
 bool BitcoinExchange::isValidValue(const std::string &valueStr, float &value)
 {
     std::istringstream ss(valueStr);
@@ -68,11 +65,10 @@ void BitcoinExchange::processInputFile(const std::string &inputFile)
     }
 
     std::string line;
-    getline(file, line); // skip header
-
+    getline(file, line);
     while (getline(file, line))
     {
-        size_t delim = line.find('|');
+        size_t delim = line.find(',');
         if (delim == std::string::npos)
         {
             std::cerr << "Error: bad input => " << line << std::endl;
