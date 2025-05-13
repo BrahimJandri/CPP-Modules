@@ -1,15 +1,15 @@
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange(const std::string &dbFile)
+BitcoinExchange::BitcoinExchange(const std::string &dataFile)
 {
-    loadDatabase(dbFile);
+    loadDatabase(dataFile);
 }
 
 BitcoinExchange::~BitcoinExchange() {}
 
-void BitcoinExchange::loadDatabase(const std::string &dbFile)
+void BitcoinExchange::loadDatabase(const std::string &dataFile)
 {
-    std::ifstream file(dbFile.c_str());
+    std::ifstream file(dataFile.c_str());
     if (!file)
         throw std::runtime_error("Error: could not open database file.");
 
