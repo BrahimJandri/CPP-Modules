@@ -112,6 +112,7 @@ void BitcoinExchange::processInputFile(const std::string &inputFile)
         }
 
         float rate = it->second;
+        std::cout << "RATE = : " << rate << std::endl;
         std::cout << date << " => " << value << " = " << value * rate << std::endl;
     }
 }
