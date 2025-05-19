@@ -68,7 +68,7 @@ void BitcoinExchange::processInputFile(const std::string &inputFile)
     getline(file, line);
     while (getline(file, line))
     {
-        size_t delim = line.find(',');
+        size_t delim = line.find('|');
         if (delim == std::string::npos)
         {
             std::cerr << "Error: bad input => " << line << std::endl;
@@ -112,7 +112,6 @@ void BitcoinExchange::processInputFile(const std::string &inputFile)
         }
 
         float rate = it->second;
-        std::cout << "RATE = : " << rate << std::endl;
         std::cout << date << " => " << value << " = " << value * rate << std::endl;
     }
 }
