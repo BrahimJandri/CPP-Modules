@@ -106,7 +106,7 @@ void PmergeMe::mergeInsertSort(std::deque<int> &container, int left, int right)
         container[k] = temp[k - left];
 }
 
-void PmergeMe::sortAndMeasure(std::vector<int> &vec, std::deque<int> &deq)
+void PmergeMe::sortAndMeasureTime(std::vector<int> &vec, std::deque<int> &deq)
 {
     printContainer("Before: ", vec);
 

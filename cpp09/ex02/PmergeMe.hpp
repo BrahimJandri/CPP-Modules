@@ -15,7 +15,7 @@ public:
     ~PmergeMe();
 
     static void parseInput(int argc, char **argv, std::vector<int> &vec, std::deque<int> &deq);
-    static void sortAndMeasure(std::vector<int> &vec, std::deque<int> &deq);
+    static void sortAndMeasureTime(std::vector<int> &vec, std::deque<int> &deq);
 
 private:
     static bool isNumber(const std::string &str);
