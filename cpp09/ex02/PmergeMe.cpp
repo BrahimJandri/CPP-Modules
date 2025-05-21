@@ -1,11 +1,6 @@
 #include "PmergeMe.hpp"
 
-// Constructor
-PmergeMe::PmergeMe() {}
-
-PmergeMe::~PmergeMe() {}
-
-bool PmergeMe::isNumber(const std::string &str)
+bool isNumber(const std::string &str)
 {
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
     {
@@ -15,7 +10,7 @@ bool PmergeMe::isNumber(const std::string &str)
     return !str.empty();
 }
 
-void PmergeMe::parseInput(int argc, char **argv, std::vector<int> &vec, std::deque<int> &deq)
+void parseInput(int argc, char **argv, std::vector<int> &vec, std::deque<int> &deq)
 {
     for (int i = 1; i < argc; ++i)
     {
@@ -32,92 +27,151 @@ void PmergeMe::parseInput(int argc, char **argv, std::vector<int> &vec, std::deq
     }
 }
 
-void PmergeMe::printContainer(const std::string &prefix, const std::vector<int> &container)
+template <typename Container>
+void printContainer(const std::string &prefix, const Container &container)
 {
     std::cout << prefix;
-    for (std::vector<int>::const_iterator it = container.begin(); it != container.end(); ++it)
+    for (typename Container::const_iterator it = container.begin(); it != container.end(); ++it)
         std::cout << *it << " ";
     std::cout << std::endl;
 }
 
-void PmergeMe::printContainer(const std::string &prefix, const std::deque<int> &container)
+std::vector<int> generateJacobsthalVector(int n)
 {
-    std::cout << prefix;
-    for (std::deque<int>::const_iterator it = container.begin(); it != container.end(); ++it)
-        std::cout << *it << " ";
-    std::cout << std::endl;
+    std::vector<int> J;
+    J.push_back(0);
+    if (n == 1)
+        return J;
+    J.push_back(1);
+    while (J.back() < n)
+    {
+        int next = J[J.size() - 1] + 2 * J[J.size() - 2];
+        J.push_back(next);
+    }
+    return J;
 }
 
-void PmergeMe::mergeInsertSort(std::vector<int> &container, int left, int right)
+std::deque<int> generateJacobsthalDeque(int n)
 {
-    if (left >= right)
+    std::deque<int> J;
+    J.push_back(0);
+    if (n == 1)
+        return J;
+    J.push_back(1);
+    while (J.back() < n)
+    {
+        int next = J[J.size() - 1] + 2 * J[J.size() - 2];
+        J.push_back(next);
+    }
+    return J;
+}
+
+void insertSmallIntoBigVec(std::vector<int> &big, const std::vector<int> &small)
+{
+    int n = small.size();
+    if (n == 0)
         return;
 
-    int mid = (left + right) / 2;
-    mergeInsertSort(container, left, mid);
-    mergeInsertSort(container, mid + 1, right);
-
-    std::vector<int> temp;
-    int i = left, j = mid + 1;
-
-    while (i <= mid && j <= right)
+    std::vector<int> jac = generateJacobsthalVector(n + 2);
+    for (int i = 0; i < n; ++i)
     {
-        if (container[i] < container[j])
-            temp.push_back(container[i++]);
-        else
-            temp.push_back(container[j++]);
+        int pos = jac[i + 1];
+        if (pos > static_cast<int>(big.size()))
+            pos = big.size();
+
+        std::vector<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[i]);
+        big.insert(it, small[i]);
     }
-
-    while (i <= mid)
-        temp.push_back(container[i++]);
-    while (j <= right)
-        temp.push_back(container[j++]);
-
-    for (int k = left; k <= right; ++k)
-        container[k] = temp[k - left];
 }
 
-void PmergeMe::mergeInsertSort(std::deque<int> &container, int left, int right)
+void insertSmallIntoBigDeq(std::deque<int> &big, const std::deque<int> &small)
 {
-    if (left >= right)
+    int n = small.size();
+    if (n == 0)
         return;
 
-    int mid = (left + right) / 2;
-    mergeInsertSort(container, left, mid);
-    mergeInsertSort(container, mid + 1, right);
-
-    std::deque<int> temp;
-    int i = left, j = mid + 1;
-
-    while (i <= mid && j <= right)
+    std::vector<int> jac = generateJacobsthalVector(n + 2);
+    for (int i = 0; i < n; ++i)
     {
-        if (container[i] < container[j])
-            temp.push_back(container[i++]);
-        else
-            temp.push_back(container[j++]);
+        int pos = jac[i + 1];
+        if (pos > static_cast<int>(big.size()))
+            pos = big.size();
+
+        std::deque<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[i]);
+        big.insert(it, small[i]);
     }
-
-    while (i <= mid)
-        temp.push_back(container[i++]);
-    while (j <= right)
-        temp.push_back(container[j++]);
-
-    for (int k = left; k <= right; ++k)
-        container[k] = temp[k - left];
 }
 
-void PmergeMe::sortAndMeasureTime(std::vector<int> &vec, std::deque<int> &deq)
+void mergeInsertSort(std::vector<int> &container)
+{
+    if (container.size() <= 1)
+        return;
+
+    std::vector<int> big;
+    std::vector<int> small;
+
+    for (size_t i = 0; i + 1 < container.size(); i += 2)
+    {
+        if (container[i] > container[i + 1])
+        {
+            big.push_back(container[i]);
+            small.push_back(container[i + 1]);
+        }
+        else
+        {
+            big.push_back(container[i + 1]);
+            small.push_back(container[i]);
+        }
+    }
+
+    if (container.size() % 2 == 1)
+        big.push_back(container.back());
+
+    std::sort(big.begin(), big.end());
+    insertSmallIntoBigVec(big, small);
+    container = big;
+}
+
+void mergeInsertSort(std::deque<int> &container)
+{
+    if (container.size() <= 1)
+        return;
+
+    std::deque<int> big;
+    std::deque<int> small;
+
+    for (size_t i = 0; i + 1 < container.size(); i += 2)
+    {
+        if (container[i] > container[i + 1])
+        {
+            big.push_back(container[i]);
+            small.push_back(container[i + 1]);
+        }
+        else
+        {
+            big.push_back(container[i + 1]);
+            small.push_back(container[i]);
+        }
+    }
+
+    if (container.size() % 2 == 1)
+        big.push_back(container.back());
+
+    std::sort(big.begin(), big.end());
+    insertSmallIntoBigDeq(big, small);
+    container = big;
+}
+
+void sortAndMeasureTime(std::vector<int> &vec, std::deque<int> &deq)
 {
     printContainer("Before: ", vec);
 
-    // Sort with vector
     clock_t startVec = clock();
-    mergeInsertSort(vec, 0, vec.size() - 1);
+    mergeInsertSort(vec);
     clock_t endVec = clock();
 
-    // Sort with deque
     clock_t startDeq = clock();
-    mergeInsertSort(deq, 0, deq.size() - 1);
+    mergeInsertSort(deq);
     clock_t endDeq = clock();
 
     printContainer("After:  ", vec);

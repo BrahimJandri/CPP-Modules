@@ -13,8 +13,8 @@ int main(int argc, char **argv)
 
     try
     {
-        PmergeMe::parseInput(argc, argv, vec, deq);
-        PmergeMe::sortAndMeasureTime(vec, deq);
+        parseInput(argc, argv, vec, deq);
+        sortAndMeasureTime(vec, deq);
     }
     catch (const std::exception &e)
     {
