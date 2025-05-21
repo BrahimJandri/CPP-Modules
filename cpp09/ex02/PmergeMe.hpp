@@ -3,10 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <deque>
-#include <string>
 #include <sstream>
 #include <algorithm>
-#include <cstdlib>
 
 void parseInput(int argc, char **argv, std::vector<int> &vec, std::deque<int> &deq);
 void sortAndMeasureTime(std::vector<int> &vec, std::deque<int> &deq);
