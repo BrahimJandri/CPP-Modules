@@ -73,14 +73,30 @@ void insertSmallIntoBigVec(std::vector<int> &big, const std::vector<int> &small)
         return;
 
     std::vector<int> jac = generateJacobsthalVector(n + 2);
+
+    // Keep track of inserted indices
+    std::vector<bool> inserted(n, false);
+
+    // Insert in Jacobsthal order
+    for (size_t i = 1; i < jac.size(); ++i)
+    {
+        int idx = jac[i] - 1; // Because Jacobsthal starts from 1-based
+        if (idx >= 0 && idx < n && !inserted[idx])
+        {
+            std::vector<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[idx]);
+            big.insert(it, small[idx]);
+            inserted[idx] = true;
+        }
+    }
+
+    // Insert any remaining not covered by Jacobsthal
     for (int i = 0; i < n; ++i)
     {
-        int pos = jac[i + 1];
-        if (pos > static_cast<int>(big.size()))
-            pos = big.size();
-
-        std::vector<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[i]);
-        big.insert(it, small[i]);
+        if (!inserted[i])
+        {
+            std::vector<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[i]);
+            big.insert(it, small[i]);
+        }
     }
 }
 
@@ -90,15 +106,30 @@ void insertSmallIntoBigDeq(std::deque<int> &big, const std::deque<int> &small)
     if (n == 0)
         return;
 
-    std::vector<int> jac = generateJacobsthalVector(n + 2);
+    std::deque<int> jac = generateJacobsthalDeque(n + 2);
+
+    // Keep track of inserted indices
+    std::vector<bool> inserted(n, false);
+
+    // Insert in Jacobsthal order
+    for (size_t i = 1; i < jac.size(); ++i)
+    {
+        int idx = jac[i] - 1; // Because Jacobsthal starts from 1-based
+        if (idx >= 0 && idx < n && !inserted[idx])
+        {
+            std::deque<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[idx]);
+            big.insert(it, small[idx]);
+            inserted[idx] = true;
+        }
+    }
+
     for (int i = 0; i < n; ++i)
     {
-        int pos = jac[i + 1];
-        if (pos > static_cast<int>(big.size()))
-            pos = big.size();
-
-        std::deque<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[i]);
-        big.insert(it, small[i]);
+        if (!inserted[i])
+        {
+            std::deque<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[i]);
+            big.insert(it, small[i]);
+        }
     }
 }
 
@@ -132,7 +163,7 @@ void mergeInsertSort(std::vector<int> &container)
     container = big;
 }
 
-void mergeInsertSort(std::deque<int> &container)
+void mergeInsertSortDeq(std::deque<int> &container)
 {
     if (container.size() <= 1)
         return;
@@ -164,17 +195,17 @@ void mergeInsertSort(std::deque<int> &container)
 
 void sortAndMeasureTime(std::vector<int> &vec, std::deque<int> &deq)
 {
-    printContainer("Before: ", vec);
+    printContainer("Before: ", deq);
 
     clock_t startVec = clock();
     mergeInsertSort(vec);
     clock_t endVec = clock();
 
     clock_t startDeq = clock();
-    mergeInsertSort(deq);
+    mergeInsertSortDeq(deq);
     clock_t endDeq = clock();
 
-    printContainer("After:  ", vec);
+    printContainer("After:  ", deq);
 
     double vecTime = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1e6;
     double deqTime = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1e6;
