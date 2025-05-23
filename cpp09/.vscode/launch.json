@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/bjandri/Desktop/CPP-Modules/cpp09/ex00",
-      "program": "/home/bjandri/Desktop/CPP-Modules/cpp09/ex00/build/Debug/outDebug",
+      "cwd": "/home/bjandri/Desktop/CPP-Modules/cpp09/ex02",
+      "program": "/home/bjandri/Desktop/CPP-Modules/cpp09/ex02/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

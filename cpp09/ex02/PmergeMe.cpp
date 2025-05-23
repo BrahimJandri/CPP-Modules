@@ -74,13 +74,11 @@ void insertSmallIntoBigVec(std::vector<int> &big, const std::vector<int> &small)
 
     std::vector<int> jac = generateJacobsthalVector(n + 2);
 
-    // Keep track of inserted indices
     std::vector<bool> inserted(n, false);
 
-    // Insert in Jacobsthal order
     for (size_t i = 1; i < jac.size(); ++i)
     {
-        int idx = jac[i] - 1; // Because Jacobsthal starts from 1-based
+        int idx = jac[i] - 1;
         if (idx >= 0 && idx < n && !inserted[idx])
         {
             std::vector<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[idx]);
@@ -89,7 +87,6 @@ void insertSmallIntoBigVec(std::vector<int> &big, const std::vector<int> &small)
         }
     }
 
-    // Insert any remaining not covered by Jacobsthal
     for (int i = 0; i < n; ++i)
     {
         if (!inserted[i])
@@ -108,13 +105,11 @@ void insertSmallIntoBigDeq(std::deque<int> &big, const std::deque<int> &small)
 
     std::deque<int> jac = generateJacobsthalDeque(n + 2);
 
-    // Keep track of inserted indices
     std::vector<bool> inserted(n, false);
 
-    // Insert in Jacobsthal order
     for (size_t i = 1; i < jac.size(); ++i)
     {
-        int idx = jac[i] - 1; // Because Jacobsthal starts from 1-based
+        int idx = jac[i] - 1;
         if (idx >= 0 && idx < n && !inserted[idx])
         {
             std::deque<int>::iterator it = std::lower_bound(big.begin(), big.end(), small[idx]);
