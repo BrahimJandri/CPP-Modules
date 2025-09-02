@@ -1,0 +1,70 @@
+# Compiled Object files
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Common C++ executable names from exercises
+megaphone
+phonebook
+account
+Zombie
+zombieHorde
+brain
+human
+replace
+harl
+harlFilter
+Fixed
+BSP
+bureaucrat
+form
+intern
+convert
+serialize
+whatever
+iter
+easyfind
+span
+mutantstack
+btc
+rpn
+pmergeme
+
+# Test files and logs
+test_output.txt
+*.log
